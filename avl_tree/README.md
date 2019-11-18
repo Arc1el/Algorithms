@@ -120,7 +120,7 @@ AVLNode* minValueNode(AVLNode* node)
     return current; 
 } 
 ```
-
+삭제
 ```c++
 AVLNode* delete_node(AVLNode* root, int key) 
 {   
