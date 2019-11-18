@@ -150,10 +150,10 @@ AVLNode* delete_node(AVLNode* root, int key)
                 root = NULL; 
             } 
             else //자식 1명
-			{
-				 *root = *temp;
-			}
-			free(temp); 
+            { 
+		*root = *temp;
+            }
+	free(temp); 
         } 
         else
         { 
