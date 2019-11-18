@@ -205,7 +205,7 @@ void inorder(AVLNode* root)
 		inorder(root->right);
 	}
 }
-//전위순회
+//후위순회
 void postorder(AVLNode* root)
 {
 	if(root)
