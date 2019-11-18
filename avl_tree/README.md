@@ -1,9 +1,9 @@
-# AVL트리 입력, 삭제, 출력프로그램
+# AVL트리의 생성, 입력, 삭제, 출력프로그램
 
 ![Image Of Result](https://github.com/Arc1el/Algorithms/blob/master/avl_tree/result.png)
 
 AVL노드 구조체
-```
+```c++
 typedef struct AVLNode
 {
 	int key;
@@ -12,7 +12,8 @@ typedef struct AVLNode
 	struct AVLNode *right;
 } AVLNode;
 ```
-```
+트리의 높이구하기
+```c++
 int get_height(AVLNode *node)
 {
 	int height = 0;
@@ -24,14 +25,17 @@ int get_height(AVLNode *node)
 	return height;
 }
 ```
-```
+균형인수 구하기
+```c++
 int get_balance(AVLNode* node)
 {
 	if (node == NULL) return 0;
 
 	return get_height(node->left) - get_height(node->right);
 }
-
+```
+노드생성
+```c++
 AVLNode* create_node(int key)
 {
 	AVLNode* node = (AVLNode*)malloc(sizeof(AVLNode));
@@ -41,8 +45,8 @@ AVLNode* create_node(int key)
 	return(node);
 }
 ```
-```
-// 오른쪽 회전
+오른쪽 회전연산
+```c++
 AVLNode *rotate_right(AVLNode *parent)
 {
 	AVLNode* child = parent->left;
@@ -52,8 +56,8 @@ AVLNode *rotate_right(AVLNode *parent)
 	return child;
 }
 ```
-```
-// 왼쪽회전
+왼쪽 회전연산
+```c++
 AVLNode *rotate_left(AVLNode *parent)
 {
 	AVLNode *child = parent->right;
@@ -63,7 +67,8 @@ AVLNode *rotate_left(AVLNode *parent)
 	return child;
 }
 ```
-```
+삽입
+```c++
 AVLNode* insert(AVLNode* node, int key)
 {
 	if (node == NULL)
@@ -103,7 +108,8 @@ AVLNode* insert(AVLNode* node, int key)
 	return node;
 }
 ```
-```
+단말노드 찾기
+```c++
 AVLNode* minValueNode(AVLNode* node) 
 { 
     AVLNode* current = node; 
@@ -114,7 +120,8 @@ AVLNode* minValueNode(AVLNode* node)
     return current; 
 } 
 ```
-```
+
+```c++
 AVLNode* delete_node(AVLNode* root, int key) 
 {   
     if (root == NULL) 
@@ -194,8 +201,8 @@ AVLNode* delete_node(AVLNode* root, int key)
     return root; 
 } 
 ```
-```
-// 전위순회
+전위순회
+```c++
 void preorder(AVLNode *root)
 {
 	if (root != NULL)
@@ -206,8 +213,8 @@ void preorder(AVLNode *root)
 	}
 }
 ```
-```
-//중위순회
+중위순회
+```c++
 void inorder(AVLNode* root)
 {
 	if(root)
@@ -218,8 +225,8 @@ void inorder(AVLNode* root)
 	}
 }
 ```
-```
-//전위순회
+후위순회
+```c++
 void postorder(AVLNode* root)
 {
 	if(root)
