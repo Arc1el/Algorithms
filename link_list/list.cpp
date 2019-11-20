@@ -40,6 +40,7 @@ ListNode* delete_first(ListNode *head)
 	head = removed->link;	
 	free(removed);		
 	return head;		
+}
 
 ListNode* delete(ListNode *head, ListNode *pre)
 {
